@@ -95,5 +95,4 @@ dependencies {
 
     implementation project(":core")
     implementation project(":feature_hotel:domain")
-    implementation project(":core-ui")
 }
