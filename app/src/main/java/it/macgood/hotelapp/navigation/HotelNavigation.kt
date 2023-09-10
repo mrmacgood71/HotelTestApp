@@ -9,10 +9,10 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import it.macgood.core_ui.CustomTransition
-import it.macgood.hotelapp.hotel.HotelScreen
-import it.macgood.hotelapp.orderpaid.OverpaidScreen
-import it.macgood.hotelapp.reservation.ReservationScreen
-import it.macgood.hotelapp.room.RoomsScreen
+import it.macgood.presentation.OverpaidScreen
+import it.macgood.presentation.hotel.HotelScreen
+import it.macgood.presentation.reservation.ReservationScreen
+import it.macgood.presentation.room.RoomsScreen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -23,47 +23,58 @@ fun HotelNavigation() {
         composable(
             route = Screen.HotelScreen.route,
             arguments = Screen.HotelScreen.arguments,
-            enterTransition = { it.macgood.core_ui.CustomTransition.enterTransition() },
-            exitTransition = { it.macgood.core_ui.CustomTransition.exitTransition() },
-            popEnterTransition = { it.macgood.core_ui.CustomTransition.popEnterTransition() },
-            popExitTransition = { it.macgood.core_ui.CustomTransition.popExitTransition() }
+            enterTransition = { CustomTransition.enterTransition() },
+            exitTransition = { CustomTransition.exitTransition() },
+            popEnterTransition = { CustomTransition.popEnterTransition() },
+            popExitTransition = { CustomTransition.popExitTransition() }
         ) {
-            HotelScreen(navController = navController)
+            HotelScreen(
+                navController = navController
+            ) {
+                navController.navigate(Screen.RoomsScreen.createRoute(it.name))
+            }
         }
         composable(
             route = "${Screen.RoomsScreen.route}/{${Screen.HOTEL_NAME}}",
             arguments = Screen.RoomsScreen.arguments,
-            enterTransition = { it.macgood.core_ui.CustomTransition.enterTransition() },
-            exitTransition = { it.macgood.core_ui.CustomTransition.exitTransition() },
-            popEnterTransition = { it.macgood.core_ui.CustomTransition.popEnterTransition() },
-            popExitTransition = { it.macgood.core_ui.CustomTransition.popExitTransition() }
+            enterTransition = { CustomTransition.enterTransition() },
+            exitTransition = { CustomTransition.exitTransition() },
+            popEnterTransition = { CustomTransition.popEnterTransition() },
+            popExitTransition = { CustomTransition.popExitTransition() }
         ) {
-            RoomsScreen(navController = navController)
+            RoomsScreen(
+                navController = navController
+            ) {
+                navController.navigate(Screen.ReservationScreen.route)
+            }
         }
         composable(
             route = Screen.ReservationScreen.route,
             arguments = Screen.ReservationScreen.arguments,
-            enterTransition = { it.macgood.core_ui.CustomTransition.enterTransition() },
-            exitTransition = { it.macgood.core_ui.CustomTransition.exitTransition() },
-            popEnterTransition = { it.macgood.core_ui.CustomTransition.popEnterTransition() },
-            popExitTransition = { it.macgood.core_ui.CustomTransition.popExitTransition() }
+            enterTransition = { CustomTransition.enterTransition() },
+            exitTransition = { CustomTransition.exitTransition() },
+            popEnterTransition = { CustomTransition.popEnterTransition() },
+            popExitTransition = { CustomTransition.popExitTransition() }
         ) {
-            ReservationScreen(navController = navController)
+            ReservationScreen(navController = navController) {
+                navController.navigate(Screen.OverpaidScreen.route)
+            }
         }
         composable(
             route = Screen.OverpaidScreen.route,
             arguments = Screen.OverpaidScreen.arguments,
-            enterTransition = { it.macgood.core_ui.CustomTransition.enterTransition() },
-            exitTransition = { it.macgood.core_ui.CustomTransition.exitTransition() },
-            popEnterTransition = { it.macgood.core_ui.CustomTransition.popEnterTransition() },
-            popExitTransition = { it.macgood.core_ui.CustomTransition.popExitTransition() }
+            enterTransition = { CustomTransition.enterTransition() },
+            exitTransition = { CustomTransition.exitTransition() },
+            popEnterTransition = { CustomTransition.popEnterTransition() },
+            popExitTransition = { CustomTransition.popExitTransition() }
         ) {
-            OverpaidScreen(navController = navController)
+            OverpaidScreen(
+                navRoute = Screen.HotelScreen.route,
+                navController = navController
+            )
         }
 
     }
-
-
 }
 
 sealed class Screen(

@@ -15,14 +15,21 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core-ui" />
-            <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/domain" />
-            <option value="$PROJECT_DIR$/hotel" />
+            <option value="$PROJECT_DIR$/feature_hotel" />
+            <option value="$PROJECT_DIR$/feature_hotel/data" />
+            <option value="$PROJECT_DIR$/feature_hotel/domain" />
+            <option value="$PROJECT_DIR$/feature_hotel/presentation" />
+            <option value="$PROJECT_DIR$/feature_overpaid" />
+            <option value="$PROJECT_DIR$/feature_overpaid/presentation" />
+            <option value="$PROJECT_DIR$/feature_reservation" />
+            <option value="$PROJECT_DIR$/feature_reservation/data" />
+            <option value="$PROJECT_DIR$/feature_reservation/domain" />
+            <option value="$PROJECT_DIR$/feature_reservation/presentation" />
+            <option value="$PROJECT_DIR$/feature_room" />
+            <option value="$PROJECT_DIR$/feature_room/data" />
+            <option value="$PROJECT_DIR$/feature_room/domain" />
+            <option value="$PROJECT_DIR$/feature_room/presentation" />
             <option value="$PROJECT_DIR$/navigation" />
-            <option value="$PROJECT_DIR$/overpaid" />
-            <option value="$PROJECT_DIR$/overpaid/presentation" />
-            <option value="$PROJECT_DIR$/reservation" />
-            <option value="$PROJECT_DIR$/room" />
           </set>
         </option>
       </GradleProjectSettings>

@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.android.kotlin)
-    alias(libs.plugins.org.jetbrains.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.org.jetbrains.kotlin.kapt)
 }
 
 android {
@@ -46,6 +46,9 @@ android {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
+    }
+    hilt {
+        enableAggregatingTask = true
     }
 }
 
@@ -99,4 +102,10 @@ dependencies {
 
     implementation project(":core")
     implementation project(":core-ui")
+
+    implementation project(":feature_overpaid:presentation")
+    implementation project(":feature_reservation:presentation")
+    implementation project(":feature_room:presentation")
+    implementation project(":feature_hotel:presentation")
+    implementation project(":feature_hotel:domain")
 }
