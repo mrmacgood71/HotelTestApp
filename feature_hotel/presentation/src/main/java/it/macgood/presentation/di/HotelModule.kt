@@ -12,6 +12,7 @@ import it.macgood.hotel.domain.HotelRepository
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -21,9 +22,10 @@ object HotelModule {
     @Provides
     @Singleton
     fun provideHotelApi(
-        client: OkHttpClient
+        client: OkHttpClient,
+        @Named("baseUrl") baseUrl: String
     ): HotelApi = Retrofit.Builder()
-        .baseUrl(HotelApi.BASE_URL)
+        .baseUrl(baseUrl)
         .client(client)
         .addConverterFactory(GsonConverterFactory.create())
         .build()

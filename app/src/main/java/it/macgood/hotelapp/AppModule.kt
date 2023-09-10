@@ -1,13 +1,14 @@
-package it.macgood.hotelapp.di
+package it.macgood.hotelapp
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import it.macgood.hotelapp.navigation.Screen
+import it.macgood.navigation.Screen
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -31,6 +32,12 @@ object AppModule {
 
     @Provides
     @Singleton
+    @Named("hotelName")
     fun provideHotelName() = Screen.HOTEL_NAME
+
+    @Provides
+    @Singleton
+    @Named("baseUrl")
+    fun provideBaseUrl() = BuildConfig.base_url
 
 }

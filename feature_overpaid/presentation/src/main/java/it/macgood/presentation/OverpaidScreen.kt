@@ -34,8 +34,8 @@ import it.macgood.core_ui.view.SingleButtonBottomBar
 
 @Composable
 fun OverpaidScreen(
-    navRoute: String,
-    navController: NavController
+    navController: NavController,
+    onNavigate: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -47,10 +47,9 @@ fun OverpaidScreen(
         },
         bottomBar = {
             SingleButtonBottomBar(
-                buttonText = stringResource(R.string.overpaid_super)
-            ) {
-                navController.navigate(navRoute)
-            }
+                buttonText = stringResource(R.string.overpaid_super),
+                onNavigate = onNavigate
+            )
         }
     ) { innerPaddings ->
         Column(

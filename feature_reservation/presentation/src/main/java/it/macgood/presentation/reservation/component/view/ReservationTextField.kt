@@ -57,7 +57,6 @@ fun ReservationTextField(
             unfocusedContainerColor = unfocusedContainerColor,
             unfocusedLabelColor = PeculiaritiesOnSurface
         ),
-        prefix = { Text(text = "@") },
         shape = RoundedCornerShape(8.dp),
         textStyle = TextStyle.Default.copy(
             fontFamily = SfProDisplay,

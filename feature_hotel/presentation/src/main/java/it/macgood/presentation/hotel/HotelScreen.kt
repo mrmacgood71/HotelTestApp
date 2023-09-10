@@ -40,9 +40,7 @@ import it.macgood.presentation.hotel.component.PeculiaritiesFlowRow
 
 @Composable
 fun HotelScreen(
-    navController: NavController,
     hotelViewModel: HotelViewModel = hiltViewModel(),
-    navRoute: String = "",
     onNavigate: (Hotel) -> Unit = {}
 ) {
     val hotelState = hotelViewModel.hotel.collectAsState().value
@@ -61,10 +59,8 @@ fun HotelScreen(
                 topBar = { HotelTopBar() },
                 bottomBar = {
                     HotelBottomBar(
-                        navController = navController,
                         hotel = hotelState.hotel,
-                        onNavigate = onNavigate,
-                        navRoute = navRoute
+                        onNavigate = onNavigate
                     )
                 }
             ) { innerPaddings ->

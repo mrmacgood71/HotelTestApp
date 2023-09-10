@@ -9,6 +9,10 @@ import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import it.macgood.core_ui.CustomTransition
+import it.macgood.presentation.OverpaidScreen
+import it.macgood.presentation.hotel.HotelScreen
+import it.macgood.presentation.reservation.ReservationScreen
+import it.macgood.presentation.room.RoomsScreen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -24,7 +28,9 @@ fun HotelNavigation() {
             popEnterTransition = { CustomTransition.popEnterTransition() },
             popExitTransition = { CustomTransition.popExitTransition() }
         ) {
-//            HotelScreen(navController = navController)
+            HotelScreen {
+                navController.navigate(Screen.RoomsScreen.createRoute(it.name))
+            }
         }
         composable(
             route = "${Screen.RoomsScreen.route}/{${Screen.HOTEL_NAME}}",
@@ -34,7 +40,9 @@ fun HotelNavigation() {
             popEnterTransition = { CustomTransition.popEnterTransition() },
             popExitTransition = { CustomTransition.popExitTransition() }
         ) {
-//            RoomsScreen(navController = navController)
+            RoomsScreen(navController = navController) {
+                navController.navigate(Screen.ReservationScreen.route)
+            }
         }
         composable(
             route = Screen.ReservationScreen.route,
@@ -44,7 +52,9 @@ fun HotelNavigation() {
             popEnterTransition = { CustomTransition.popEnterTransition() },
             popExitTransition = { CustomTransition.popExitTransition() }
         ) {
-//            ReservationScreen(navController = navController)
+            ReservationScreen(navController = navController) {
+                navController.navigate(Screen.OverpaidScreen.route)
+            }
         }
         composable(
             route = Screen.OverpaidScreen.route,
@@ -54,7 +64,9 @@ fun HotelNavigation() {
             popEnterTransition = { CustomTransition.popEnterTransition() },
             popExitTransition = { CustomTransition.popExitTransition() }
         ) {
-//            OverpaidScreen(navController = navController)
+            OverpaidScreen(navController = navController) {
+                navController.navigate(Screen.HotelScreen.route)
+            }
         }
 
     }

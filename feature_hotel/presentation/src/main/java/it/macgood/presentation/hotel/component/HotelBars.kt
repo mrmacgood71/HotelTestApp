@@ -25,9 +25,7 @@ import it.macgood.hotel.domain.Hotel
 
 @Composable
 fun HotelBottomBar(
-    navController: NavController,
     hotel: Hotel,
-    navRoute: String = "",
     onNavigate: (Hotel) -> Unit = {}
 ) {
     BottomAppBar(
@@ -42,10 +40,7 @@ fun HotelBottomBar(
                 .fillMaxWidth()
                 .padding(horizontal = 8.dp)
                 .height(48.dp),
-            onClick = {
-                onNavigate(hotel)
-//                navController.navigate(Screen.RoomsScreen.createRoute(hotel.name))
-                      },
+            onClick = { onNavigate(hotel) },
             text = stringResource(R.string.to_choose_room),
             containerColor = AddressColor
         )

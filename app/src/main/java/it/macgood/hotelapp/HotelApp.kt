@@ -1,4 +1,4 @@
-package it.macgood.hotelapp.ui
+package it.macgood.hotelapp
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

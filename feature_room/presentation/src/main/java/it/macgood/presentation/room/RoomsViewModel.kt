@@ -11,11 +11,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Named
 
 @HiltViewModel
 class RoomsViewModel @Inject constructor(
     private val getRoomsUseCase: GetRoomsUseCase,
-    private val hotelName: String,
+    @Named("hotelName") private val hotelName: String,
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val _roomState = MutableStateFlow(RoomsState())
